@@ -1,0 +1,82 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+<C-g>	vimrc.d/commands.vim	/^nmap <C-g> :TagbarToggle<CR>$/;"	m
+<C-n>	vimrc.d/commands.vim	/^nmap <C-n> :NERDTreeToggle<CR>$/;"	m
+<F4>	vimrc.d/java.vim	/^imap <F4> <Plug>(JavaComplete-Imports-AddSmart)$/;"	m
+<F4>	vimrc.d/java.vim	/^nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)$/;"	m
+<F5>	vimrc.d/java.vim	/^imap <F5> <Plug>(JavaComplete-Imports-Add)$/;"	m
+<F5>	vimrc.d/java.vim	/^nmap <F5> <Plug>(JavaComplete-Imports-Add)$/;"	m
+<F6>	vimrc.d/java.vim	/^imap <F6> <Plug>(JavaComplete-Imports-AddMissing)$/;"	m
+<F6>	vimrc.d/java.vim	/^nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)$/;"	m
+<F7>	vimrc.d/java.vim	/^imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)$/;"	m
+<F7>	vimrc.d/java.vim	/^nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)$/;"	m
+<S-Tab>	vimrc.d/completer.vim	/^inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m
+<Tab>	vimrc.d/completer.vim	/^inoremap <expr> <Tab> Tab_Or_Complete()$/;"	m
+<Tab>	vimrc.d/completer.vim	/^inoremap <expr> <Tab> pumvisible() ? "\\<C-n>" : "\\<Tab>"$/;"	m
+<leader>g	vimrc.d/CommandT.vim	/^nmap <silent> <leader>g <Plug>(CommandTTag)$/;"	m
+<leader>ga	vimrc.d/commands.vim	/^nnoremap <leader>ga :Git add %:p<CR><CR>$/;"	m
+<leader>gb	vimrc.d/commands.vim	/^nnoremap <leader>gb :Git branch<Space>$/;"	m
+<leader>gc	vimrc.d/commands.vim	/^nnoremap <leader>gc :Gcommit -v -q<CR>$/;"	m
+<leader>gd	vimrc.d/commands.vim	/^nnoremap <leader>gd :Gdiff<CR>$/;"	m
+<leader>ge	vimrc.d/commands.vim	/^nnoremap <leader>ge :Gedit<CR>$/;"	m
+<leader>gl	vimrc.d/commands.vim	/^nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>$/;"	m
+<leader>gm	vimrc.d/commands.vim	/^nnoremap <leader>gm :Gmove<Space>$/;"	m
+<leader>go	vimrc.d/commands.vim	/^nnoremap <leader>go :Git checkout<Space>$/;"	m
+<leader>gp	vimrc.d/commands.vim	/^nnoremap <leader>gp :Ggrep<Space>$/;"	m
+<leader>gpl	vimrc.d/commands.vim	/^nnoremap <leader>gpl :Dispatch! git pull<CR>$/;"	m
+<leader>gps	vimrc.d/commands.vim	/^nnoremap <leader>gps :Dispatch! git push<CR>$/;"	m
+<leader>gr	vimrc.d/commands.vim	/^nnoremap <leader>gr :Gread<CR>$/;"	m
+<leader>gs	vimrc.d/commands.vim	/^nnoremap <leader>gs :Gstatus<CR>$/;"	m
+<leader>gt	vimrc.d/commands.vim	/^nnoremap <leader>gt :Gcommit -v -q %:p<CR>$/;"	m
+<leader>gw	vimrc.d/commands.vim	/^nnoremap <leader>gw :Gwrite<CR><CR>$/;"	m
+<leader>nr	vimrc.d/commands.vim	/^nnoremap <leader>nr :set nu! relativenumber!<CR>$/;"	m
+BuildCommandLineForJava	vimrc.d/commands.vim	/^function BuildCommandLineForJava(...)$/;"	f
+Create_Test_XML	vimrc.d/commands.vim	/^function Create_Test_XML (class_name, method_name)$/;"	f
+DBG	vimrc.d/commands.vim	/^command! -nargs=* DBG call DebugJava(<f-args>)$/;"	c
+DebugJava	vimrc.d/commands.vim	/^command! -nargs=* DebugJava call DebugTestNG(<f-args>)$/;"	c
+DebugJava	vimrc.d/commands.vim	/^function DebugJava(...)$/;"	f
+EmojiCheckMark	vimrc.d/emojis.vim	/^command! EmojiCheckMark  :normal i<C-v>U2714$/;"	c
+EmojiInProgress	vimrc.d/emojis.vim	/^command! EmojiInProgress :normal i<C-v>U25B6$/;"	c
+EmojiNotDone	vimrc.d/emojis.vim	/^command! EmojiNotDone    :normal i<C-v>U26AA$/;"	c
+Is_Test	vimrc.d/commands.vim	/^function Is_Test() " returns true if has @Test annotation in 3 lines above class$/;"	f
+JavaRun	vimrc.d/commands.vim	/^command! -nargs=* JavaRun call Run_Java_Class_Main(<f-args>)$/;"	c
+ParseJavaCli	vimrc.d/commands.vim	/^function ParseJavaCli(...)$/;"	f
+Run_Java_Class_Main	vimrc.d/commands.vim	/^function Run_Java_Class_Main(...)$/;"	f
+Tab_Or_Complete	vimrc.d/completer.vim	/^function! Tab_Or_Complete() abort$/;"	f
+check_arguments	git-identity	/^check_arguments () {$/;"	f
+define_gpg	git-identity	/^define_gpg () {$/;"	f
+define_identity	git-identity	/^define_identity () {$/;"	f
+define_ssh	git-identity	/^define_ssh () {$/;"	f
+env_ssh_command	git-identity	/^env_ssh_command () {$/;"	f
+format_identity	git-identity	/^format_identity () {$/;"	f
+format_raw_identity	git-identity	/^format_raw_identity () {$/;"	f
+g:airline#extensions#ale#enabled	vimrc.d/Ale.vim	/^let g:airline#extensions#ale#enabled = 1$/;"	v
+g:airline_theme	vimrc.d/common.vim	/^let g:airline_theme='molokai'$/;"	v
+g:ale_completion_enabled	vimrc.d/Ale.vim	/^let g:ale_completion_enabled = 0$/;"	v
+g:ale_lint_on_enter	vimrc.d/Ale.vim	/^let g:ale_lint_on_enter = 0$/;"	v
+g:ale_lint_on_save	vimrc.d/Ale.vim	/^let g:ale_lint_on_save = 1$/;"	v
+g:ale_open_list	vimrc.d/Ale.vim	/^let g:ale_open_list = 0$/;"	v
+g:ale_pattern_options	vimrc.d/Ale.vim	/^let g:ale_pattern_options = {$/;"	v
+g:ale_sign_column_always	vimrc.d/Ale.vim	/^let g:ale_sign_column_always = 1$/;"	v
+g:completor_auto_trigger	vimrc.d/completer.vim	/^let g:completor_auto_trigger = 0$/;"	v
+g:completor_java_omni_trigger	vimrc.d/java.vim	/^let g:completor_java_omni_trigger = "\\\\w+$|[\\\\w\\\\)\\\\]\\\\}'\\"]+\\\\.\\\\w*$"$/;"	v
+g:vebugger_leader	vimrc.d/CommandT.vim	/^let g:vebugger_leader='<Leader>d'$/;"	v
+g:vebugger_leader	vimrc.d/debug.vim	/^let g:vebugger_leader='<Leader>d'$/;"	v
+g:vebugger_use_tags	vimrc.d/CommandT.vim	/^let g:vebugger_use_tags=1$/;"	v
+g:vebugger_use_tags	vimrc.d/debug.vim	/^let g:vebugger_use_tags=1 " Lets jdb use tags to find source files$/;"	v
+g:vim_tags_auto_generate	vimrc.d/tags.vim	/^let g:vim_tags_auto_generate = 1$/;"	v
+get_current_settings	git-identity	/^get_current_settings () {$/;"	f
+get_ssh_command	git-identity	/^get_ssh_command () {$/;"	f
+list_identities	git-identity	/^list_identities () {$/;"	f
+list_raw_identities	git-identity	/^list_raw_identities () {$/;"	f
+lookup	git-identity	/^lookup () {$/;"	f
+print_current_identity	git-identity	/^print_current_identity () {$/;"	f
+print_raw_identity	git-identity	/^print_raw_identity () {$/;"	f
+remove_identity	git-identity	/^remove_identity () {$/;"	f
+templates	vimrc.d/sh.vim	/^  augroup templates            $/;"	a
+update_identity	git-identity	/^update_identity () {$/;"	f
+use_identity	git-identity	/^use_identity () {$/;"	f
