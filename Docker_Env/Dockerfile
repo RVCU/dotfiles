@@ -14,10 +14,14 @@ RUN yum install -y ranger ShellCheck sudo zsh tmux make automake ruby rubygem-ra
 RUN useradd -ms /bin/bash $LOCAL_USER
 RUN usermod $LOCAL_USER -a -G wheel
 RUN curl -sL https://rpm.nodesource.com/setup_11.x | sudo -E bash - &&\
-    dnf install nodejs
+    dnf install -y nodejs
+RUN curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo &&\
+    dnf install -y yarn
+RUN npm install -g bash-language-server dockerfile-language-server-nodejs
 RUN wget https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz -O go.tar.gz &&\
     tar -C /usr/local/ -xzv go.tar.gz &\
     rm -rf go.tar.gz
+RUN go get -u github.com/saibing/bingo
 RUN echo "$LOCAL_USER:password" | chpasswd
 USER $LOCAL_USER
 WORKDIR /home/$LOCAL_USER
@@ -29,8 +33,12 @@ ADD vim_work_functions.vim /home/$LOCAL_USER/.vim
 COPY templates/* /home/$LOCAL_USER/.vim/templates/
 RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 RUN echo | echo | vim +PluginInstall +qall &> /dev/null
+RUN cd ~/.vim/bundle/coc.nvim && yarn install
 RUN cd ~/.vim/bundle/command-t; rake make 
-COPY coc-settings.json ~/.vim/
+COPY coc-settings.json /home/$LOCAL_USER/.vim/
+RUN pip install -U pip
+RUN pip install python-language-server
+RUN echo | echo | vim +'CocInstall coc-pyls coc-java' &> /dev/null
 RUN git config --global core.editor vim && git config --global difftool.vdwrap.cmd 'vdwrap $LOCAL $REMOTE' && git config --global diff.tool vdwrap
 RUN /home/$LOCAL_USER/bin/git-identity --define default $LOCAL_USER $EMAIL
 RUN /home/$LOCAL_USER/bin/git-identity --define-ssh default /home/$LOCAL_USER/.ssh/Work_Github
