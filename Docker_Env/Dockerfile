@@ -10,9 +10,14 @@ RUN yum -y update && yum clean all
 RUN yum install -y ranger ShellCheck sudo zsh tmux make automake ruby rubygem-rake gcc \
                    man gcc-c++ kernel-devel python-devel python3-devel vim git ctags ruby-devel \
                    java-1.8.0-openjdk-devel maven java-1.8.0-openjdk wget nmap lynx cmake java \
-                   htop golang bind-utils ncurses-compat-libs httpie jq elinks procps groovy 
+                   htop bind-utils ncurses-compat-libs httpie jq elinks procps groovy 
 RUN useradd -ms /bin/bash $LOCAL_USER
 RUN usermod $LOCAL_USER -a -G wheel
+RUN curl -sL https://rpm.nodesource.com/setup_11.x | sudo -E bash - &&\
+    dnf install nodejs
+RUN wget https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz -O go.tar.gz &&\
+    tar -C /usr/local/ -xzv go.tar.gz &\
+    rm -rf go.tar.gz
 RUN echo "$LOCAL_USER:password" | chpasswd
 USER $LOCAL_USER
 WORKDIR /home/$LOCAL_USER
@@ -25,8 +30,7 @@ COPY templates/* /home/$LOCAL_USER/.vim/templates/
 RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 RUN echo | echo | vim +PluginInstall +qall &> /dev/null
 RUN cd ~/.vim/bundle/command-t; rake make 
-RUN cd ~/.vim/bundle/vim-javacomplete2/libs/javavi/ && mvn compile
-RUN cd ~/.vim/bundle/vimproc.vim; make 
+COPY coc-settings.json ~/.vim/
 RUN git config --global core.editor vim && git config --global difftool.vdwrap.cmd 'vdwrap $LOCAL $REMOTE' && git config --global diff.tool vdwrap
 RUN /home/$LOCAL_USER/bin/git-identity --define default $LOCAL_USER $EMAIL
 RUN /home/$LOCAL_USER/bin/git-identity --define-ssh default /home/$LOCAL_USER/.ssh/Work_Github

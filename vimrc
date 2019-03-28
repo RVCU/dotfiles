@@ -15,22 +15,18 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
-Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
-Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'tomasr/molokai'
 Plugin 'wincent/command-t'
-Plugin 'maralla/completor.vim'
 Plugin 'tpope/vim-dispatch'
-Plugin 'joonty/vim-do'
-Plugin 'Shougo/vimproc.vim'
 Plugin 'idanarye/vim-vebugger'
 Plugin 'morhetz/gruvbox'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'dbeniamine/cheat.sh-vim'
+Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 
 " git repos on your local machine (i.e. when working on your own plugin)

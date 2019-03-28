@@ -20,7 +20,7 @@ export LANGUAGE=en_US.UTF-8
 # export SYSTEMD_PAGER=
 
 export GOPATH=/home/"$user"/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 export GOBIN=$GOPATH/bin
 # User specific aliases and functions
 

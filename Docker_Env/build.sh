@@ -5,6 +5,7 @@ cp -rf ../templates .
 cp -rfp ../vimrc.d/ .vimrc.d/ || :
 cp -f ../vimrc .vimrc
 cp -f ../tmux.conf .tmux.conf
+cp -f ../coc-settings.json .
 #SECRET STUFF I DON'T KEEP IN GIT
 cp -r ~/bin .
 cp -f ../git-identity bin/
