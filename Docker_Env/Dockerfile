@@ -19,7 +19,7 @@ RUN curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.re
     dnf install -y yarn
 RUN npm install -g bash-language-server dockerfile-language-server-nodejs tree-sitter tree-sitter-bash --unsafe-perm
 RUN wget https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz -O go.tar.gz &&\
-    tar -C /usr/local/ -xzv go.tar.gz &\
+    tar -C /usr/local/ -xzf go.tar.gz &&\
     rm -rf go.tar.gz
 RUN go get -u github.com/saibing/bingo
 RUN echo "$LOCAL_USER:password" | chpasswd
