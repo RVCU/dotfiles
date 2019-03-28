@@ -17,7 +17,7 @@ RUN curl -sL https://rpm.nodesource.com/setup_11.x | sudo -E bash - &&\
     dnf install -y nodejs
 RUN curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo &&\
     dnf install -y yarn
-RUN npm install -g bash-language-server dockerfile-language-server-nodejs
+RUN npm install -g bash-language-server dockerfile-language-server-nodejs tree-sitter tree-sitter-bash --unsafe-perm
 RUN wget https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz -O go.tar.gz &&\
     tar -C /usr/local/ -xzv go.tar.gz &\
     rm -rf go.tar.gz
