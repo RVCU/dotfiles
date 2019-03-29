@@ -40,6 +40,9 @@ nmap <leader>rn <Plug>(coc-rename)
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+" Always show signcolumns
+set signcolumn=yes
+
 function! Install_Coc
     :CocInstall coc-java
     sleep 30
