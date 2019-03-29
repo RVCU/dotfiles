@@ -39,3 +39,9 @@ nmap <leader>rn <Plug>(coc-rename)
 " Remap for format selected region
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+function! Install_Coc()                                                                                                                                                                                                               
+    :CocInstall coc-java
+    sleep 30
+    :CocInstall coc-pyls
+endfunction
