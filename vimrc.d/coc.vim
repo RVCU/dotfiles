@@ -45,3 +45,5 @@ function! Install_Coc()
     sleep 30
     :CocInstall coc-pyls
 endfunction
+
+command InstallPlugins call Install_Coc()

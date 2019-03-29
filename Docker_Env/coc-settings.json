@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema",
+  "description": "Configuration file for coc.nvim",
+    "languageserver": {
+      "golang": {
+        "command": "bingo",
+        "args": ["--diagnostics-style=instant"],
+        "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+        "filetypes": ["go"]
+      },
+      "dockerfile": {
+        "command": "docker-langserver",
+        "filetypes": ["Dockerfile", "dockerfile"],
+        "args": ["--stdio"]
+      },
+      "bash": {
+        "command": "bash-language-server",
+        "args": ["start"],
+        "filetypes": ["sh"],
+        "ignoredRootPaths": ["~"]
+      }
+    }
+}
