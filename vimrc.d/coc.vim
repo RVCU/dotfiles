@@ -47,6 +47,8 @@ function! Install_Coc
     :CocInstall coc-java
     sleep 30
     :CocInstall coc-pyls
+    sleep 30
+    :CocInstall coc-yaml
 endfunction
 
 command InstallPlugins call Install_Coc()
