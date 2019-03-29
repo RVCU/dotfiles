@@ -7,16 +7,12 @@
         "args": ["--diagnostics-style=instant"],
         "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
         "filetypes": ["go"]
-      }
-    },
-    "languageserver": {
+      },
       "dockerfile": {
         "command": "docker-langserver",
         "filetypes": ["Dockerfile", "dockerfile"],
         "args": ["--stdio"]
-      }
-    },
-    "languageserver": {
+      },
       "bash": {
         "command": "bash-language-server",
         "args": ["start"],

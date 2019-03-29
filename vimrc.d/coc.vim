@@ -40,7 +40,7 @@ nmap <leader>rn <Plug>(coc-rename)
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-function! Install_Coc()                                                                                                                                                                                                               
+function! Install_Coc
     :CocInstall coc-java
     sleep 30
     :CocInstall coc-pyls
