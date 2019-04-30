@@ -39,6 +39,7 @@ RUN cd ~/.vim/bundle/coc.nvim && yarn install
 RUN cd ~/.vim/bundle/command-t; rake make 
 COPY coc-settings.json /home/$LOCAL_USER/.vim/
 RUN mkdir -p /home/$LOCAL_USER/.config/coc/
+RUN vim '+call Install_Coc()' +qall
 RUN git config --global core.editor vim && git config --global difftool.vdwrap.cmd 'vdwrap $LOCAL $REMOTE' && git config --global diff.tool vdwrap
 RUN /home/$LOCAL_USER/bin/git-identity --define default $LOCAL_USER $EMAIL
 RUN /home/$LOCAL_USER/bin/git-identity --define-ssh default /home/$LOCAL_USER/.ssh/Work_Github
