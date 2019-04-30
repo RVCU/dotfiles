@@ -1,6 +1,16 @@
+" if hidden is not set, TextEdit might fail.
+set hidden
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+" Better display for messages
 set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -40,15 +50,17 @@ nmap <leader>rn <Plug>(coc-rename)
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-" Always show signcolumns
-set signcolumn=yes
-
 function! Install_Coc
     :CocInstall coc-java
     sleep 30
-    :CocInstall coc-pyls
+    :CocInstall coc-python
+    sleep 30                                                                                                   :CocInstall coc-yaml
     sleep 30
-    :CocInstall coc-yaml
-endfunction
-
-command InstallPlugins call Install_Coc()
+    :CocInstall coc-gocode
+    sleep 30
+    :CocInstall coc-json
+    sleep 30
+    :CocInstall coc-docker
+    sleep 30
+    :CocInstall coc-sh
+endfunction  

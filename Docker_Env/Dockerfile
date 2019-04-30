@@ -10,9 +10,9 @@ RUN yum -y update && yum clean all
 RUN yum install -y ranger ShellCheck sudo zsh tmux make automake ruby rubygem-rake gcc \
                    man gcc-c++ kernel-devel python-devel python3-devel vim git ctags ruby-devel \
                    java-1.8.0-openjdk-devel maven java-1.8.0-openjdk wget nmap lynx cmake java \
-                   htop bind-utils ncurses-compat-libs httpie jq elinks procps groovy 
-RUN pip install -U pip
-RUN pip install python-language-server
+                   htop bind-utils ncurses-compat-libs httpie jq elinks procps groovy ccls
+RUN python3 -m pip install -U pip
+RUN python3 -m pip install python-language-server
 RUN useradd -ms /bin/bash $LOCAL_USER
 RUN usermod $LOCAL_USER -a -G wheel
 RUN curl -sL https://rpm.nodesource.com/setup_11.x | sudo -E bash - &&\

@@ -24,6 +24,7 @@ EmojiCheckMark	vimrc.d/emojis.vim	/^command! EmojiCheckMark  :normal i<C-v>U2714
 EmojiInProgress	vimrc.d/emojis.vim	/^command! EmojiInProgress :normal i<C-v>U25B6$/;"	c
 EmojiNotDone	vimrc.d/emojis.vim	/^command! EmojiNotDone    :normal i<C-v>U26AA$/;"	c
 GetPackageName	vimrc.d/commands.vim	/^function GetPackageName()$/;"	f
+Install_Coc	vimrc.d/coc.vim	/^function! Install_Coc$/;"	f
 Is_Test	vimrc.d/commands.vim	/^function Is_Test() " returns true if has @Test annotation in 3 lines above class$/;"	f
 JavaRun	vimrc.d/commands.vim	/^command! -nargs=* JavaRun call Run_Java_Class_Main(<f-args>)$/;"	c
 K	vimrc.d/coc.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
