@@ -2,16 +2,27 @@
   "$schema": "http://json-schema.org/draft-06/schema",
   "description": "Configuration file for coc.nvim",
     "languageserver": {
-	  "ccls": {
-	    "command": "ccls",
-	    "filetypes": ["c", "cuda", "cpp", "objc", "objcpp"],
-	    "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-	    "initializationOptions": {
-	  	 "cache": {
-	  	   "directory": "/tmp/ccls"
-	  	 }
-	     }
-	  }
+      "dockerfile": {
+        "command": "docker-langserver",
+        "filetypes": ["Dockerfile", "dockerfile"],
+        "args": ["--stdio"]
+      },
+      "bash": {
+        "command": "bash-language-server",
+        "args": ["start"],
+        "filetypes": ["sh"],
+        "ignoredRootPaths": ["~"]
+      },
+          "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cuda", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                 "cache": {
+                   "directory": "/tmp/ccls"
+                 }
+             }
+          }
     },
     "python.linting.pylintArgs": [
         "----extension-pkg-whitelist=1xml"
