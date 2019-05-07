@@ -29,6 +29,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'jpalardy/vim-slime'
 Plugin 'tpope/vim-surround'
+Plugin 'merlinrebrovic/focus.vim'
 Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 
