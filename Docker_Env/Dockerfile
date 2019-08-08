@@ -43,4 +43,4 @@ RUN /home/$LOCAL_USER/bin/git-identity --define-ssh default /home/$LOCAL_USER/.s
 RUN /home/$LOCAL_USER/bin/git-identity --define-ssh oss /home/$LOCAL_USER/.ssh/RCVU.key
 
 
-CMD cp -r ~/code_clean ~/code; cd ~/code; ls | xargs -P11 -I{} git -C {} pull; bash
+CMD bash
