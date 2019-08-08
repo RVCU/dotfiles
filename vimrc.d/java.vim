@@ -1,5 +1,4 @@
 " Commands & compilation
-autocmd FileType java nnoremap <C-b> :Dispatch! <cr>
 autocmd FileType java let b:dispatch = 'mvn -T 1C compile -am -Dmaven.test.skip=true'
 
 command! -nargs=* BuildJavaModule call Build_Java_Module(<f-args>)
