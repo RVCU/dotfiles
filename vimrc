@@ -21,15 +21,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tomasr/molokai'
 Plugin 'wincent/command-t'
 Plugin 'tpope/vim-dispatch'
-Plugin 'idanarye/vim-vebugger'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
-Plugin 'dbeniamine/cheat.sh-vim'
-Plugin 'Shougo/vimproc.vim'
 Plugin 'junegunn/seoul256.vim'
-Plugin 'jpalardy/vim-slime'
-Plugin 'tpope/vim-surround'
-Plugin 'merlinrebrovic/focus.vim'
 Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 
