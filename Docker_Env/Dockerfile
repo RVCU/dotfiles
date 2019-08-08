@@ -48,7 +48,7 @@ RUN chown -R $LOCAL_USER:$LOCAL_USER /home/$LOCAL_USER/
 
 #git config set up 
 RUN git config --global core.editor vim && git config --global difftool.vdwrap.cmd 'vdwrap $LOCAL $REMOTE' && git config --global diff.tool vdwrap
-RUN /home/$LOCAL_USER/bin/git-identity --define default $LOCAL_USER $EMAIL
+RUN /home/$LOCAL_USER/bin/git-identity --define default $USER $EMAIL
 RUN /home/$LOCAL_USER/bin/git-identity --define-ssh default /home/$LOCAL_USER/.ssh/github_rvcu_key
 
 
