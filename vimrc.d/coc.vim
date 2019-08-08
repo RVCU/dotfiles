@@ -57,7 +57,7 @@ function! Install_Coc()
     sleep 30
     :CocInstall coc-yaml
     sleep 31
-    :CocInstall coc-gocode
+    :CocInstall coc-go
     sleep 30
     :CocInstall coc-json
     sleep 30
