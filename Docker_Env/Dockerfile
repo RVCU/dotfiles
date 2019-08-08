@@ -8,7 +8,7 @@ RUN yum -y update && yum clean all
 RUN yum install -y ranger ShellCheck sudo zsh tmux make automake ruby rubygem-rake gcc \
                    man gcc-c++ kernel-devel python-devel python3-devel vim git ctags ruby-devel \
                    java-1.8.0-openjdk-devel maven java-1.8.0-openjdk wget nmap lynx cmake java \
-                   htop bind-utils ncurses-compat-libs httpie jq elinks procps groovy ccls
+                   htop bind-utils ncurses-compat-libs httpie jq elinks procps groovy ccls python3-ipython
 RUN python3 -m pip install -U pip
 RUN python3 -m pip install python-language-server
 RUN useradd -ms /bin/bash $LOCAL_USER
@@ -29,7 +29,7 @@ ADD bin /home/$LOCAL_USER/bin
 ADD .temp-testng-customsuite.xml .tmux.conf .bashrc .vimrc .bash_work_functions* /home/$LOCAL_USER/
 RUN mkdir -p /home/$LOCAL_USER/.vim/vimrc.d && mkdir -p /home/$LOCAL_USER/.vim/templates
 ADD .vimrc.d/ /home/$LOCAL_USER/.vim/vimrc.d/
-ADD vim_work_functions.vim /home/$LOCAL_USER/.vim 
+#ADD vim_work_functions.vim /home/$LOCAL_USER/.vim 
 COPY templates/* /home/$LOCAL_USER/.vim/templates/
 RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 RUN echo | echo | vim +PluginInstall +qall &> /dev/null
