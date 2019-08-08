@@ -2,8 +2,6 @@ FROM fedora:latest
 ARG USER
 ARG LOCAL_USER
 ARG EMAIL
-ARG OSS_USER
-ARG OSS_EMAIL 
 
 ENV LANG C.UTF-8
 RUN yum -y update && yum clean all
@@ -42,7 +40,6 @@ RUN mkdir -p /home/$LOCAL_USER/.config/coc/
 RUN git config --global core.editor vim && git config --global difftool.vdwrap.cmd 'vdwrap $LOCAL $REMOTE' && git config --global diff.tool vdwrap
 RUN /home/$LOCAL_USER/bin/git-identity --define default $LOCAL_USER $EMAIL
 RUN /home/$LOCAL_USER/bin/git-identity --define-ssh default /home/$LOCAL_USER/.ssh/Work_Github
-RUN /home/$LOCAL_USER/bin/git-identity --define oss $OSS_USER $OSS_EMAIL
 RUN /home/$LOCAL_USER/bin/git-identity --define-ssh oss /home/$LOCAL_USER/.ssh/RCVU.key
 
 

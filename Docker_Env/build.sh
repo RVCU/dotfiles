@@ -18,9 +18,5 @@ echo "email for Github account"
 read -r email
 echo "local user to source bin from"
 read -r local_user
-echo "user for oss work"
-read -r oss_user
-echo "email for oss work"
-read -r oss_email
-DOCKER_OPTS="--build-arg USER=${user} --build-arg LOCAL_USER=${local_user} --build-arg EMAIL=${email} --build-arg OSS_USER=${oss_user} --build-arg=OSS_EMAIL=${oss_email}"
+DOCKER_OPTS="--build-arg USER=${user} --build-arg LOCAL_USER=${local_user} --build-arg EMAIL=${email}"
 docker build $DOCKER_OPTS -t work_env .
