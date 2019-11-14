@@ -36,7 +36,9 @@ RUN mkdir -p /home/$USER/.vim/vimrc.d /home/$USER/.vim/templates
 ADD files/vimrc.d/ /home/$USER/.vim/vimrc.d/
 COPY files/templates/* /home/$USER/.vim/templates/
 RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
-RUN echo | echo | vim +PluginInstall +qall &> /dev/null
+
+### ADDING README
+ADD README.txt /home/$USER/
 
 ### GIT CONFIG
 RUN git config --global core.editor vim 
