@@ -1,29 +1,44 @@
 FROM ubuntu:latest
-ARG LOCAL_USER
+ARG USER
 ARG EMAIL
 
+### INSTALLING PACKAGES
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+RUN apt-get -y update
+RUN apt-get install -y ranger sudo zsh tmux make automake ruby gcc \
+                   man vim git ctags locales nodejs npm \
+                   maven wget nmap lynx cmake yarn \
+                   htop golang httpie jq elinks procps groovy
+
+### SET THE LOCALE
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
 ENV LANG C.UTF-8
-RUN apt -y update
-RUN apt install -y ranger ShellCheck sudo zsh tmux make automake ruby rubygem-rake gcc \
-                   man gcc-c++ kernel-devel python-devel python3-devel vim git ctags ruby-devel \
-                   java-1.8.0-openjdk-devel maven wget nmap lynx cmake java \
-                   htop golang bind-utils ncurses-compat-libs httpie jq elinks procps groovy
+
 ### CREATING USER
-RUN useradd -ms /bin/bash $LOCAL_USER
-RUN usermod $LOCAL_USER -a -G wheel
-RUN echo "$LOCAL_USER:password" | chpasswd
-USER $LOCAL_USER
-WORKDIR /home/$LOCAL_USER
+RUN useradd -ms /bin/bash $USER
+RUN usermod $USER -a -G sudo
+RUN echo "$USER:password" | chpasswd
+USER $USER
+WORKDIR /home/$USER
+
 ### COPYING OVER .conf FILES
-ADD files/tmux.conf /home/$LOCAL_USER/.tmux.conf
-ADD files/bashrc /home/$LOCAL_USER/.bashrc
-ADD files/vimrc  /home/$LOCAL_USER/.vimrc
-RUN mkdir -p /home/$LOCAL_USER/.vim/vimrc.d /home/$LOCAL_USER/.vim/templates
-ADD files/vimrc.d/ /home/$LOCAL_USER/.vim/vimrc.d/
-COPY files/templates/* /home/$LOCAL_USER/.vim/templates/
+ADD files/tmux.conf /home/$USER/.tmux.conf
+ADD files/bashrc /home/$USER/.bashrc
+ADD files/vimrc  /home/$USER/.vimrc
+RUN mkdir -p /home/$USER/.vim/vimrc.d /home/$USER/.vim/templates
+
+### VIM :D
+ADD files/vimrc.d/ /home/$USER/.vim/vimrc.d/
+COPY files/templates/* /home/$USER/.vim/templates/
 RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 RUN echo | echo | vim +PluginInstall +qall &> /dev/null
+
+### GIT CONFIG
 RUN git config --global core.editor vim 
-RUN git config --global user.name "$LOCAL_USER"
+RUN git config --global user.name "$USER"
 RUN git config --global user.email "$EMAIL"
-ENTRYPOINT ["/bin/bash"]

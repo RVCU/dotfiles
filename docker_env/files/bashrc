@@ -11,11 +11,6 @@ if [ -f /home/"$user"/.bash_work_functions ]; then
     . /home/"$user"/.bash_work_functions  
 fi
 
-# Setting default languages
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -32,7 +27,6 @@ nls() {
     tree -t --dirsfirst -C /home/"$user"/Documents/notes/ | grep -i --color "$*"
 }
 worker() {
-
     for name in $(docker ps -a --format "{{.Names}}"| xargs) 
     do
         if [[ "$2" == "$name" ]]
@@ -69,6 +63,7 @@ how_in() {
 
 
 alias tmux='tmux -2'
+alias ll='ls -l'
 HISTSIZE=50000
 HISTFILESIZE=100000
 shopt -s histappend

@@ -1,6 +1,6 @@
 filetype on
-colorscheme molokai
-let g:airline_theme='molokai'
+colorscheme seoul256
+let g:airline_theme='seoul256'
 
 "Apparently needed
 set encoding=utf-8

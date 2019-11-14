@@ -5,4 +5,4 @@ if has("autocmd")
   augroup END                  
 endif
 
-autocmd FileType sh nnoremap <C-u> :!clear; bash % <cr>
+autocmd Filetype sh setlocal makeprg=shellcheck\ -f\ gcc\ %

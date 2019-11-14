@@ -24,7 +24,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plugin 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plugin 'junegunn/fzf.vim'
 
 
