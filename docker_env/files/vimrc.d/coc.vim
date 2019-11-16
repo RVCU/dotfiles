@@ -64,4 +64,6 @@ function! Install_Coc()
     :CocInstall coc-docker
     sleep 30
     :CocInstall coc-sh
+    sleep 30
+    :CocInstall coc-solargraph
 endfunction  

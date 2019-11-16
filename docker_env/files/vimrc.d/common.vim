@@ -1,6 +1,6 @@
 filetype on
 colorscheme seoul256
-let g:airline_theme='seoul256'
+let g:airline_theme='zenburn'
 
 "Apparently needed
 set encoding=utf-8
