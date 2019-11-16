@@ -23,6 +23,7 @@ ENV LANG C.UTF-8
 RUN useradd -ms /bin/bash $USER
 RUN usermod $USER -a -G sudo
 RUN echo "$USER:password" | chpasswd
+RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER $USER
 WORKDIR /home/$USER
 
