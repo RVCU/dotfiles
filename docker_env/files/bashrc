@@ -14,9 +14,11 @@ fi
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
+export GOROOT=/usr/local/go
 export GOPATH=/home/"$user"/go
-export PATH=$PATH:$GOPATH/bin
-export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 # User specific aliases and functions
 
 
