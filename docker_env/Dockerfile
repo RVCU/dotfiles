@@ -45,19 +45,19 @@ RUN sudo chown -R $USER:$USER /home/$USER
 RUN curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-RUN sudo apt update &&  sudo apt-get install nodejs yarn
+RUN sudo apt-get update &&  sudo apt-get install -y nodejs yarn
 
 ### INSTALLING GOLANG
 RUN curl -O https://storage.googleapis.com/golang/go1.11.2.linux-amd64.tar.gz
-RUN tar -xvf go1.11.2.linux-amd64.tar.gz && mv go /usr/local
+RUN tar -xvf go1.11.2.linux-amd64.tar.gz && sudo mv go /usr/local
 RUN mkdir /home/$USER/go
 
 ### INSTALLING RUBY
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 RUN cd ~/.rbenv && src/configure && make -C src
-RUN ~/.rbenv/bin/rbenv install 2.5.1
-RUN ~/.rbenv/bin/rbenv global 2.5.1 
-RUN ~/.rbenv/bin/rbenv local 2.5.1 
+RUN mkdir -p "$(~/.rbenv/bin/rbenv root)"/plugins
+RUN git clone https://github.com/rbenv/ruby-build.git "$(~/.rbenv/bin/rbenv root)"/plugins/ruby-build
+RUN  ~/.rbenv/bin/rbenv init; ~/.rbenv/bin/rbenv install 2.5.1
 
 ### INSTALLING PYTHON
 RUN sudo apt-get install -y python3-pip build-essential libssl-dev libffi-dev python-dev
