@@ -53,11 +53,14 @@ RUN tar -xvf go1.11.2.linux-amd64.tar.gz && sudo mv go /usr/local
 RUN mkdir /home/$USER/go
 
 ### INSTALLING RUBY
+RUN sudo apt-get install -y libreadline-dev zlib1g-dev
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 RUN cd ~/.rbenv && src/configure && make -C src
 RUN mkdir -p "$(~/.rbenv/bin/rbenv root)"/plugins
 RUN git clone https://github.com/rbenv/ruby-build.git "$(~/.rbenv/bin/rbenv root)"/plugins/ruby-build
 RUN  ~/.rbenv/bin/rbenv init; ~/.rbenv/bin/rbenv install 2.5.1
+RUN  ~/.rbenv/bin/rbenv init; ~/.rbenv/bin/rbenv global 2.5.1
+RUN  ~/.rbenv/bin/rbenv init; ~/.rbenv/bin/rbenv local 2.5.1
 
 ### INSTALLING PYTHON
 RUN sudo apt-get install -y python3-pip build-essential libssl-dev libffi-dev python-dev
