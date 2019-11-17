@@ -63,7 +63,7 @@ RUN  ~/.rbenv/bin/rbenv init; ~/.rbenv/bin/rbenv global 2.5.1
 RUN  ~/.rbenv/bin/rbenv init; ~/.rbenv/bin/rbenv local 2.5.1
 
 ### INSTALLING PYTHON
-RUN sudo apt-get install -y python3-pip build-essential libssl-dev libffi-dev python-dev
+RUN sudo apt-get install -y python3-pip build-essential libssl-dev libffi-dev python-dev python3-venv
 RUN sudo pip3 install virtualenv 
 
 ### ADDING README
