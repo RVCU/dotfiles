@@ -66,6 +66,10 @@ RUN  ~/.rbenv/bin/rbenv init; ~/.rbenv/bin/rbenv local 2.5.1
 RUN sudo apt-get install -y python3-pip build-essential libssl-dev libffi-dev python-dev python3-venv
 RUN sudo pip3 install virtualenv 
 
+### INSTALLING FZF
+RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+RUN ~/.fzf/install --all
+
 ### ADDING README
 ADD README.txt /home/$USER/
 
