@@ -46,6 +46,7 @@ RUN curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 RUN sudo apt-get update &&  sudo apt-get install -y nodejs yarn
+RUN npm i vim-node-rpc
 
 ### INSTALLING GOLANG
 RUN curl -O https://storage.googleapis.com/golang/go1.11.2.linux-amd64.tar.gz
