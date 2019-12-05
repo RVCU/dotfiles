@@ -32,6 +32,7 @@ ADD files/tmux.conf /home/$USER/.tmux.conf
 ADD files/bashrc /home/$USER/.bashrc
 ADD files/vimrc  /home/$USER/.vimrc
 RUN mkdir -p /home/$USER/.vim/vimrc.d /home/$USER/.vim/templates
+ADD files/coc-settings.json /home/$USER/.vim/
 
 ### VIM :D
 ADD files/vimrc.d/ /home/$USER/.vim/vimrc.d/
