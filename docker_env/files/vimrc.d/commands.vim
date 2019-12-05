@@ -19,12 +19,10 @@ nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 " Turn on and off number for file
-nnoremap <leader>nr :set nu! relativenumber!<CR>
+nnoremap <leader>nr :set nu! <CR>
 " Miscellaneous Shortcuts
 nmap <C-g> :TagbarToggle<CR>
 nmap <C-n> :NERDTreeToggle<CR>
-" Turn on and off number for file
-nnoremap <leader>nr :set nu! relativenumber!<CR>
 
 " Run current class file with passing classpath prepend as first arg and
 " method args as following args
@@ -52,3 +50,23 @@ function DebugJava(...)
     let all_args = join([cli_args, vm_args], ' ')
     call vebugger#jdb#start(class_name,{'classpath':classpath,'srcpath':expand('%:p:h'),'args':cli_args,'system':vm_args})
 endfunction
+
+function! Install_Coc()
+    :CocInstall coc-java
+    sleep 30
+    :CocInstall coc-python
+    sleep 30
+    :CocInstall coc-yaml
+    sleep 31
+    :CocInstall coc-go
+    sleep 30
+    :CocInstall coc-json
+    sleep 30
+    :CocInstall coc-docker
+    sleep 30
+    :CocInstall coc-sh
+    sleep 30
+    :CocInstall coc-solargraph
+    sleep 30
+    :CocInstall coc-highlight
+endfunction  

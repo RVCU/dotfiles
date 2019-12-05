@@ -1,6 +1,6 @@
 filetype on
 colorscheme seoul256
-let g:airline_theme='zenburn'
+let g:airline_theme='wombat'
 
 "Apparently needed
 set encoding=utf-8
@@ -22,6 +22,5 @@ hi MatchParen cterm=none ctermbg=green ctermfg=blue
 au BufRead,BufNewFile *.jenkinsfile setfiletype groovy
 au BufRead,BufNewFile *.sls setfiletype yaml
 
-" Setting relative numbering to ON
-set relativenumber
+" Setting numbers on
 set number
