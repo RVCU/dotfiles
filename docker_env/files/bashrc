@@ -71,5 +71,4 @@ HISTFILESIZE=100000
 shopt -s histappend
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
-stty -ixon
-
+[[ $- == *i* ]] && stty -ixon

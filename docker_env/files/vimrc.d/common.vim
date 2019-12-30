@@ -2,6 +2,19 @@ filetype on
 colorscheme seoul256
 let g:airline_theme='wombat'
 
+augroup ft_rb
+    au!
+    " fixing slow syntax linting for ruby
+    au Filetype ruby setlocal norelativenumber nocursorline re=1
+augroup END
+
+" enabling true colors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endi
+
 "Apparently needed
 set encoding=utf-8
 set tabstop=4 shiftwidth=4 expandtab
