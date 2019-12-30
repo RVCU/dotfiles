@@ -26,6 +26,8 @@ Plugin 'junegunn/seoul256.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'flazz/vim-colorschemes'
 
 
 " git repos on your local machine (i.e. when working on your own plugin)
