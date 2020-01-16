@@ -41,7 +41,7 @@ ADD files/vimrc.d/ /home/$USER/.vim/vimrc.d/
 COPY files/templates/* /home/$USER/.vim/templates/
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-RUN rm -rf vim/
+RUN sudo rm -rf vim/
 
 ### SETTING PERMISSIONS
 RUN sudo chown -R $USER:$USER /home/$USER
