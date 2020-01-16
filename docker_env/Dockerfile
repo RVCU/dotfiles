@@ -53,6 +53,7 @@ RUN mkdir /home/$USER/go
 
 ### INSTALLING RUBY
 RUN sudo apt-get install -y libreadline-dev zlib1g-dev
+RUN sudo apt-get remove ruby*
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 RUN cd ~/.rbenv && src/configure && make -C src
 RUN mkdir -p "$(~/.rbenv/bin/rbenv root)"/plugins
