@@ -35,8 +35,8 @@ ADD files/vimrc  /home/$USER/.vimrc
 RUN mkdir -p /home/$USER/.vim/vimrc.d /home/$USER/.vim/templates
 
 ### VIM :D
-RUN git clone https://github.com/vim/vim.git && cd vim &&\
-    make install
+RUN git clone https://github.com/vim/vim.git && cd vim/src &&\
+    sudo make && sudo make install
 ADD files/vimrc.d/ /home/$USER/.vim/vimrc.d/
 COPY files/templates/* /home/$USER/.vim/templates/
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
