@@ -7,7 +7,7 @@ RUN apt-get -y update
 RUN apt-get install -y ranger sudo zsh tmux make automake ruby gcc \
                    man git ctags locales nodejs npm \
                    maven wget nmap lynx cmake curl \
-                   htop golang httpie jq elinks procps groovy \
+                   htop httpie jq elinks procps groovy \
                    libncurses5-dev libgnome2-dev libgnomeui-dev \
                    libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
                    libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
