@@ -5,4 +5,4 @@ if has("autocmd")
   augroup END                  
 endif
 
-autocmd Filetype sh setlocal makeprg=shellcheck\ -f\ gcc\ %
+autocmd FileType sh let b:dispatch = 'shellcheck -f gcc'

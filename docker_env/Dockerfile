@@ -5,12 +5,13 @@ ARG EMAIL
 ### INSTALLING PACKAGES
 RUN apt-get -y update
 RUN apt-get install -y ranger sudo zsh tmux make automake ruby gcc \
-                   man vim git ctags locales nodejs npm \
+                   man git ctags locales nodejs npm \
                    maven wget nmap lynx cmake curl \
-                   htop golang httpie jq elinks procps groovy
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get install -y yarn
+                   htop golang httpie jq elinks procps groovy \
+                   libncurses5-dev libgnome2-dev libgnomeui-dev \
+                   libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+                   libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
+                   python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev
 
 ### SET THE LOCALE
 RUN locale-gen en_US.UTF-8  
@@ -32,22 +33,17 @@ ADD files/tmux.conf /home/$USER/.tmux.conf
 ADD files/bashrc /home/$USER/.bashrc
 ADD files/vimrc  /home/$USER/.vimrc
 RUN mkdir -p /home/$USER/.vim/vimrc.d /home/$USER/.vim/templates
-ADD files/coc-settings.json /home/$USER/.vim/
 
 ### VIM :D
+RUN git clone https://github.com/vim/vim.git && cd vim &&\
+    make install
 ADD files/vimrc.d/ /home/$USER/.vim/vimrc.d/
 COPY files/templates/* /home/$USER/.vim/templates/
-RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ### SETTING PERMISSIONS
 RUN sudo chown -R $USER:$USER /home/$USER
-
-### INSTALLING NODEJS
-RUN curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-RUN sudo apt-get update &&  sudo apt-get install -y nodejs yarn
-RUN npm i vim-node-rpc
 
 ### INSTALLING GOLANG
 RUN curl -O https://storage.googleapis.com/golang/go1.11.2.linux-amd64.tar.gz
