@@ -38,7 +38,6 @@ RUN mkdir -p /home/$USER/.vim/vimrc.d /home/$USER/.vim/templates
 RUN git clone https://github.com/vim/vim.git && cd vim/src &&\
     sudo make && sudo make install
 ADD files/vimrc.d/ /home/$USER/.vim/vimrc.d/
-COPY files/templates/* /home/$USER/.vim/templates/
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 RUN sudo rm -rf vim/
@@ -53,7 +52,7 @@ RUN mkdir /home/$USER/go
 
 ### INSTALLING RUBY
 RUN sudo apt-get install -y libreadline-dev zlib1g-dev
-RUN sudo apt-get remove ruby*
+RUN sudo apt-get remove -y ruby*
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 RUN cd ~/.rbenv && src/configure && make -C src
 RUN mkdir -p "$(~/.rbenv/bin/rbenv root)"/plugins
