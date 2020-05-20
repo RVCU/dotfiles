@@ -36,3 +36,6 @@ shopt -s histappend
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 [[ $- == *i* ]] && stty -ixon
+
+#bash fzf history completion
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
